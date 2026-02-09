@@ -12,10 +12,10 @@ const password = ref('');
     <NavBar />
     <div class="min-h-screen flex items-center justify-center pt-10">
         <form action="" class="flex flex-row items-center justify-center w-full h-full">
-            <div class="w-full flex flex-row items-center justify-center bg-gray-200">
+            <div class="hidden w-full md:flex flex-row items-center justify-center bg-gray-200">
                 <img :src="shop" alt="">
             </div>
-            <div class="w-full flex flex-col items-center justify-center">
+            <div class="w-[200vw] md:w-full flex flex-col items-center justify-center">
                 <div class="flex flex-col items-start justify-center z-0 mb-5 group w-1/2">
                     <h2 class="text-2xl">Create an Account for ShopNow</h2>
                 </div>

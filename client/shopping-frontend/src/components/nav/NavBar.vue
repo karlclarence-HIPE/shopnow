@@ -7,9 +7,9 @@
         </div>
         <div class="flex flex-row justify-center items-center">
             <ul class="flex flex-row justify-between items-center gap-10">
-                <li><a href="" class="text-base">Home</a></li>
-                <li><a href="" class="text-base">Contact</a></li>
-                <li><a href="" class="text-base">About</a></li>
+                <li><a href="/home" class="text-base">Home</a></li>
+                <li><a href="/contact" class="text-base">Contact</a></li>
+                <li><a href="/about" class="text-base">About</a></li>
                 <li><a href="/sign-up" class="text-base">Sign Up</a></li>
             </ul>
         </div>
@@ -31,7 +31,7 @@
                         class="absolute end-1.5 bottom-1.5 text-white bg-brand hover:bg-brand-strong border border-transparent focus:ring-4 focus:ring-brand-medium font-medium text-xs px-3 py-1.5 rounded focus:outline-none cursor-pointer">
                     </button>
                 </div>
-                
+
             </form>
         </div>
     </div>
