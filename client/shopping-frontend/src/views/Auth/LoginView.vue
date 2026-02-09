@@ -2,19 +2,21 @@
 import { ref } from 'vue';
 import login_image from '../../assets/online-shopping.png';
 import FooterView from '../../components/global/FooterView.vue';
+import NavBar from '../../components/nav/NavBar.vue';
 
 const email = ref('');
 const password = ref(''); 
 </script>
 <template>
-    <div class="min-h-screen flex items-center justify-center">
+    <NavBar />
+    <div class="min-h-screen flex items-center justify-center pt-10">
         <form action="" class="flex flex-row items-center justify-center w-full h-full">
             <div class="w-full flex flex-row items-center justify-center bg-gray-200">
                 <img :src="login_image" alt="">
             </div>
             <div class="w-full flex flex-col items-center justify-center">
-                <div class="flex flex-col items-center justify-center z-0 w-full mb-5 group">
-                    <h2 class="text-2xl">Log in to Exclusive</h2>
+                <div class="flex flex-col items-start justify-center z-0 mb-5 group w-1/2">
+                    <h2 class="text-2xl">Log in to ShopNow</h2>
                 </div>
                 <div class="relative z-0 w-1/2 mb-5 group">
                     <input type="email" name="email" id="email"
