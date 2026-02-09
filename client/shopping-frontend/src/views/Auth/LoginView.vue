@@ -44,13 +44,13 @@ const password = ref('');
                     <button type="submit"
                         class="text-white inset-0 bg-black focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded rounded-base text-sm px-4 py-2.5 cursor-pointer w-1/2 hover:opacity-10">Log
                         In</button>
-                    <a type="submit"
+                    <a href="/auth/forgot-password" type="submit"
                         class="text-dark font-medium leading-5 rounded rounded-base text-sm px-4 py-2.5 cursor-pointer hover:underline">Forgot
                         Password</a>
                 </div>
                 <div class="w-1/2 flex flex-row items-center justify-between">
                     <p class="text-sm font-light text-gray-400">
-                        Don’t have an account yet? <a href="/sign-up"
+                        Don’t have an account yet? <a href="/auth/sign-up"
                             class="font-medium  hover:underline text-blue-500">Sign up</a>
                     </p>
                 </div>

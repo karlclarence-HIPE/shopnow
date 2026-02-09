@@ -57,7 +57,7 @@ const confirmPassword = ref('');
                 </div>
                 <div class="w-1/2 flex flex-row items-center justify-between">
                     <p class="text-sm font-light text-gray-400">
-                        Already have an account? <a href="/login"
+                        Already have an account? <a href="/auth/login"
                             class="font-medium  hover:underline text-blue-500">Login</a>
                     </p>
                 </div>
