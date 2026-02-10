@@ -10,7 +10,7 @@
                 <li><a href="/home" class="text-base">Home</a></li>
                 <li><a href="/contact" class="text-base">Contact</a></li>
                 <li><a href="/about" class="text-base">About</a></li>
-                <li><a href="/sign-up" class="text-base">Sign Up</a></li>
+                <li><a href="/auth/sign-up" class="text-base">Sign Up</a></li>
             </ul>
         </div>
         <div class="flex justify-center items-center">

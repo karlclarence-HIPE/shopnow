@@ -40,10 +40,10 @@ const router = createRouter({
       component: AboutView,
     },
     {
-        path: "/auth/forgot-password",
-        name: "forgot-password", 
-        component: ForgotPassView,  
-    }
+      path: "/auth/forgot-password",
+      name: "forgot-password",
+      component: ForgotPassView,
+    },
   ],
 });
 
