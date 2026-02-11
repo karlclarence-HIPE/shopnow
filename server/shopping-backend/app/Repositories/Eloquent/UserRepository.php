@@ -13,7 +13,24 @@ class UserRepository extends BaseRepository implements IUserRepository
         parent::__construct($user);
     }
 
-    
+    public function index()
+    {
+        return $this->model->all();
+    }
 
+    public function create($data)
+    {
+        return $this->user->create($data);
+    }
+
+    public function update($id, $data)
+    {
+        return $this->user->update($id, $data);
+    }
+
+    public function delete($id)
+    {
+        return $this->user->delete($id);
+    }
 }
 ?>
