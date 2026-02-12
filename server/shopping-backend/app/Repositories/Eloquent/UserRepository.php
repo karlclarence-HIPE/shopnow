@@ -15,7 +15,7 @@ class UserRepository extends BaseRepository implements IUserRepository
 
     public function index()
     {
-        return $this->model->all();
+        return $this->user->all();
     }
 
     public function create($data)
@@ -23,9 +23,17 @@ class UserRepository extends BaseRepository implements IUserRepository
         return $this->user->create($data);
     }
 
+    public function getById($id)
+    {
+        return $this->user->find($id);
+    }
+
     public function update($id, $data)
     {
-        return $this->user->update($id, $data);
+        $user = $this->user->find($id);
+        $user->update($data);
+
+        return $user->fresh();
     }
 
     public function delete($id)
