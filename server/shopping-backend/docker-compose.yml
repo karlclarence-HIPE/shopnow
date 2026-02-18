@@ -11,7 +11,7 @@ services:
     volumes: 
       - .:/var/www
     networks: 
-      - laravel
+      - shopnow_network
 
   nginx: 
     image: nginx:alpine
@@ -25,7 +25,7 @@ services:
     depends_on: 
       - php 
     networks: 
-      - laravel
+      - shopnow_network
   
   db:
     image: mysql:8.0
@@ -41,11 +41,11 @@ services:
     volumes: 
       - dbdata:/var/lib/mysql
     networks:
-      - laravel
+      - shopnow_network
 
 volumes: 
   dbdata: 
 
 networks: 
-  laravel: 
+  shopnow_network: 
     driver: bridge
