@@ -1,11 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 import login_image from '../../assets/online-shopping.png';
 import FooterView from '../../components/global/FooterView.vue';
 import NavBar from '../../components/nav/NavBar.vue';
 
-const email = ref('');
-const password = ref(''); 
 </script>
 <template>
     <NavBar />

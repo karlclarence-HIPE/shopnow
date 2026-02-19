@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
-import { ref, computed } from "vue";
+import { ref } from "vue";
 import type { User } from "../types/user";
-import type { LoginRequest } from "../types/user";
+import type { LoginRequest } from "../types/auth";
 
 export const useAuthStore = defineStore("auth", () => {
   const user = ref<User | null>(null);
@@ -12,7 +12,7 @@ export const useAuthStore = defineStore("auth", () => {
     loading.value = true;
     console.log(payload);
   };
-  
+
   const logout = () => {
     user.value = null;
     token.value = null;
