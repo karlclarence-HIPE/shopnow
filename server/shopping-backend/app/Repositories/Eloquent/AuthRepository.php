@@ -15,6 +15,20 @@ class AuthRepository extends BaseRepository implements IAuthRepository
         parent::__construct($user);
     }
 
+    public function login(string $email, string $password)
+    {
+        $user = $this->findByEmail($email);
+
+        if (!$user) {
+            return null;
+        }
+
+        if (!Hash::check($password, $user->password)) {
+            return null;
+        }
+
+        return $user;
+    }
 
     public function logout()
     {
@@ -26,19 +40,9 @@ class AuthRepository extends BaseRepository implements IAuthRepository
         return $this->user->where("email", $email)->first();
     }
 
-    public function login(string $email, string $password)
+    private function sendResponseWithTokens(array $tokens, $body = [])
     {
-        $user = $this->findByEmail($email); 
-
-        if (!$user) {
-            return null;
-        }
-
-        if (!Hash::check($password, $user->password)) {
-            return null;
-        }
-
-        return $user;
+    
     }
 }
 ?>

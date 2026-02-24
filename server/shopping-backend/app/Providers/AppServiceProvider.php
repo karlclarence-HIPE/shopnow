@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Enums\TokenAbility;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Sanctum\Sanctum;
 
@@ -29,7 +30,9 @@ class AppServiceProvider extends ServiceProvider
         Sanctum::$accessTokenAuthenticationCallback = function ($accessToken, $isValid) {
             $abilities = collect($accessToken->abilities);
 
-            
+            if (!empty($abilities) && $abilities[0] === TokenAbility::ISSUE_ACCESS_TOKEN->value) {
+                return $accessToken->expires_at && $accessToken->expires_at->isFuture();
+            }
             return $isValid;
         };
 
@@ -39,6 +42,6 @@ class AppServiceProvider extends ServiceProvider
             }
 
             return $request->cookie('refreshToken') ?? '';
-        }
+        };
     }
 }

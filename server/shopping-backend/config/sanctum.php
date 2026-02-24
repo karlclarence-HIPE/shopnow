@@ -47,7 +47,8 @@ return [
     |
     */
 
-    'expiration' => null,
+    'expiration' => env('ACCESS_TOKEN_EXPIRATION', 5),
+    'rt_expiration' => env('REFRESH_TOKEN_EXPIRATION', 24 * 60),
 
     /*
     |--------------------------------------------------------------------------

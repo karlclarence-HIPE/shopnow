@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
 use App\Services\AuthService;
+use Illuminate\Http\JsonResponse;
 
 class AuthController extends Controller
 {
@@ -39,5 +40,17 @@ class AuthController extends Controller
                 'message' => 'An unexpected error occured.'
             ], 500);
         }
+    }
+
+    public function logout()
+    {
+        return;
+    }
+
+    private function sendResponseWithTokens(array $tokens, $body = []): JsonResponse
+    {
+        $rtExpireTime = config('sanctum.rt_expiration');
+        $coolie = cookie('refreshToken');
+
     }
 }
