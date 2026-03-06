@@ -9,7 +9,7 @@ class UserService extends BaseService
     public function __construct(
         private readonly UserRepository $repository
     ) {
-        parent::__construct($repository);
+        // parent::__construct($repository);
     }
 
     public function index()

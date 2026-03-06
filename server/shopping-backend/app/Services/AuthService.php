@@ -18,17 +18,12 @@ class AuthService extends BaseService
         parent::__construct($repository);
     }
 
-    public function login(string $email, string $password)
-    {
-        return $this->repository->login($email, $password);
-    }
-
     public function logout()
     {
         return $this->repository->logout();
     }
 
-    public function generateTokens($user)
+    public function generateTokens($user): array
     {
         $atExpireTime = now()->addMinutes(config("sanctum.expiration"));
         $rtExpireTime = now()->addMinutes(config("sanctum.rt_expiration"));
@@ -37,8 +32,8 @@ class AuthService extends BaseService
         $refreshToken = $user->createToken('refresh_token', [TokenAbility::ISSUE_ACCESS_TOKEN], $rtExpireTime);
 
         return [
-            'accessToken' => $accessToken,
-            'refreshToken' => $refreshToken,
+            'accessToken' => $accessToken->plainTextToken,
+            'refreshToken' => $refreshToken->plainTextToken,
         ];
     }
 

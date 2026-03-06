@@ -4,7 +4,6 @@ namespace App\Repositories\Eloquent;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Hash;
 
 abstract class BaseRepository
 {

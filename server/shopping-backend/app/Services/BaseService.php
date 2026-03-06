@@ -36,8 +36,4 @@ abstract class BaseService
         return $this->repository->delete($id);
     }
 
-    public function login(string $email, string $password)
-    {
-        return $this->repository->login($email, $password);
-    }
 }
