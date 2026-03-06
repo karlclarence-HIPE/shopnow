@@ -23,9 +23,9 @@ class UpdateUserRequest extends FormRequest
     {
         return [
             //
-            'name' => ['sometimes', 'string', 'max:255'],
-            'email' => ['sometimes', 'string', 'email'],
-            'password' => ['sometimes', 'string'],
+            'name' => 'sometimes|string|max:255',
+            'email' => 'sometimes|string|email',
+            'password' => 'sometimes|string',
         ];
     }
 }

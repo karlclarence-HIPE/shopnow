@@ -38,7 +38,7 @@ class AuthService extends BaseService
 
         return [
             'accessToken' => $accessToken,
-            'refresh˝Token' => $refreshToken,
+            'refreshToken' => $refreshToken,
         ];
     }
 
