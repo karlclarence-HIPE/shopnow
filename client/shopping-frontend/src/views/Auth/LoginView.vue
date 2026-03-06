@@ -1,12 +1,9 @@
 <script setup lang="ts">
 import login_image from '../../assets/online-shopping.png';
-import FooterView from '../../components/global/FooterView.vue';
-import NavBar from '../../components/nav/NavBar.vue';
-
+import LayoutView from '../../layout/LayoutView.vue';
 </script>
 <template>
-    <NavBar />
-    <div class="min-h-screen flex items-center justify-center pt-10">
+    <LayoutView>
         <form action="" class="flex flex-row items-center justify-center w-full h-full">
             <div class="w-full flex flex-row items-center justify-center bg-gray-200">
                 <img :src="login_image" alt="">
@@ -53,6 +50,5 @@ import NavBar from '../../components/nav/NavBar.vue';
                 </div>
             </div>
         </form>
-    </div>
-    <FooterView />
+    </LayoutView>
 </template>

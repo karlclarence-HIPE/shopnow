@@ -1,4 +1,14 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import router from '../../router';
+
+const goToCart = () => {
+    router.push("/cart");
+}
+
+const goToProfile = () => {
+    router.push("/profile");
+}
+</script>
 <template>
     <div
         class="hidden md:flex fixed flex-row justify-between items-center w-full h-[10vh] border-b border-gray-300 bg-white z-10 p-5">
@@ -13,7 +23,7 @@
                 <li><a href="/auth/sign-up" class="text-base">Sign Up</a></li>
             </ul>
         </div>
-        <div class="flex justify-center items-center">
+        <div class="flex justify-center items-center gap-5">
             <form class="max-w-md w-full">
                 <div class="relative w-full">
                     <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -33,6 +43,12 @@
                 </div>
 
             </form>
+            <button class="" @click="goToCart">
+                <v-icon name="fa-shopping-cart" scale="1.5" />
+            </button>
+            <button class="" @click="goToProfile">
+                <v-icon name="fa-regular-user" scale="1.5" />
+            </button>
         </div>
     </div>
 </template>

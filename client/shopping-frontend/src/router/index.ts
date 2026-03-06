@@ -5,6 +5,8 @@ import HomeView from "../views/Home/HomeView.vue";
 import ContactView from "../views/Home/ContactView.vue";
 import AboutView from "../views/Home/AboutView.vue";
 import ForgotPassView from "../views/Auth/ForgotPassView.vue";
+import CartView from "../views/Cart/CartView.vue";
+import ProfileView from "../views/User/ProfileView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -43,6 +45,16 @@ const router = createRouter({
       path: "/auth/forgot-password",
       name: "forgot-password",
       component: ForgotPassView,
+    },
+    {
+      path: "/cart",
+      name: "cart",
+      component: CartView,
+    },
+    {
+      path: "/profile", 
+      name: "profile", 
+      component: ProfileView
     },
   ],
 });
