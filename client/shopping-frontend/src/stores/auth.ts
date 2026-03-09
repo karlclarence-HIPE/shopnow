@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 import type { User } from "../types/user";
 import type { LoginRequest } from "../types/auth";
+import * as AuthApi from "../api/auth.api";
 
 export const useAuthStore = defineStore("auth", () => {
   const user = ref<User | null>(null);
@@ -10,7 +11,19 @@ export const useAuthStore = defineStore("auth", () => {
 
   const login = async (payload: LoginRequest) => {
     loading.value = true;
-    console.log(payload);
+    try {
+      const response = await AuthApi.login(payload);
+      console.log(response.data);
+      return response.data;
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const refresh = async () => {
+    const { data } = await AuthApi.refresh();
+    sessionStorage.setItem("accessToken", data.accessToken);
+    return data;
   };
 
   const logout = () => {
@@ -23,6 +36,7 @@ export const useAuthStore = defineStore("auth", () => {
     token,
     loading,
     login,
+    refresh,
     logout,
   };
 });

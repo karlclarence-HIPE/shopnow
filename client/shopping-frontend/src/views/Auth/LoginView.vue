@@ -3,10 +3,27 @@ import login_image from '../../assets/online-shopping.png';
 import LayoutView from '../../layout/LayoutView.vue';
 import TextBox from '../../components/input/TextBox.vue';
 import TextLabel from '../../components/input/TextLabel.vue';
+import type { LoginRequest } from '../../types/auth';
+import { useAuthStore } from '../../stores/auth';
+import { reactive } from 'vue';
+
+const authStore = useAuthStore();
+
+const data = reactive<LoginRequest>({
+    email: "", 
+    password: "",
+})
+
+const submitForm = async (payload: LoginRequest) => {
+    console.log(payload)
+    const { data } = await authStore.login(payload);
+    return data;
+}
+
 </script>
 <template>
     <LayoutView>
-        <form action="" class="flex flex-row items-center justify-center w-full h-full">
+        <form @submit.prevent="submitForm(data)" class="flex flex-row items-center justify-center w-full h-full">
             <div class="w-full flex flex-row items-center justify-center bg-gray-200">
                 <img :src="login_image" alt="">
             </div>
@@ -15,14 +32,14 @@ import TextLabel from '../../components/input/TextLabel.vue';
                     <h2 class="text-2xl">Log in to ShopNow</h2>
                 </div>
                 <div class="relative z-0 w-1/2 mb-5 group">
-                    <TextBox type="email" name="email" id="email" placeholder=" " :required="true"
+                    <TextBox v-model="data.email" type="email" name="email" id="email" placeholder=" " :required="true"
                         className="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer" />
                     <TextLabel for="email"
                         className="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-left peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
                         title="Email Address" :required="true" spanClassName="text-red-500" />
                 </div>
                 <div class="relative z-0 w-1/2 mb-5 group">
-                    <TextBox type="password" name="password" id="password"
+                    <TextBox v-model="data.password" type="password" name="password" id="password"
                         className="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
                         :required="true" placeholder=" " />
                     <TextLabel for="password"

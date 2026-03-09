@@ -9,9 +9,10 @@ interface TextBoxProps {
     required: boolean;
 }
 
+const model = defineModel<string>();
 defineProps<TextBoxProps>();
 
 </script>
 <template>
-    <input :type="type" :id="id" :name="name" :placeholder="placeholder" :required="required" :class="className" />
+    <input v-model="model" :type="type" :id="id" :name="name" :placeholder="placeholder" :required="required" :class="className" />
 </template>
