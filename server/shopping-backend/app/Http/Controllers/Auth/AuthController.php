@@ -47,9 +47,16 @@ class AuthController extends ApiController
 
     }
 
-    public function logout()
+    public function logout(Request $request): JsonResponse
     {
-        return;
+        if (Auth::check()) {
+            $request->user()->tokens()->delete();
+        }
+        $cookie = $request->cookies->get('refreshToken');
+
+        return $this
+            ->successResponse('Successfully logged out.')
+            ->withCookie($cookie);
     }
 
     private function sendResponseWithTokens(array $tokens, $body = []): JsonResponse
