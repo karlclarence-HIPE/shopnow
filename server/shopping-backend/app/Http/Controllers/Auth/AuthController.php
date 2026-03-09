@@ -37,35 +37,15 @@ class AuthController extends ApiController
         ]);
     }
 
-    // public function refresh(Request $request): JsonResponse
-    // {
-    //     /* $user = Auth::user();
-    //     dd($user);
-    //     $request->user()->tokens()->delete();
-    //     $tokens = $this->auth_service->generateTokens($user);
+    public function refresh(Request $request): JsonResponse
+    {
+        $user = Auth::user();
+        $request->user()->tokens()->delete();
+        $tokens = $this->auth_service->generateTokens($user);
 
-    //     return $this->sendResponseWithTokens($tokens); */
+        return $this->sendResponseWithTokens($tokens);
 
-    //     $refreshToken = $request->cookie('refreshToken');
-
-    //     if (!$refreshToken) {
-    //         return response()->json(['message' => 'Unauthorized'], 401);
-    //     }
-
-    //     $tokenModel = PersonalAccessToken::findToken($refreshToken);
-
-    //     if (!$tokenModel) {
-    //         return response()->json(['message' => 'Invalid refresh token.'], 401);
-    //     }
-
-    //     $user = $tokenModel->tokenable();
-
-    //     $user->tokens()->delete();
-
-    //     $tokens = $this->auth_service->generateTokens($user);
-
-    //     return $this->sendResponseWithTokens($tokens);
-    // }
+    }
 
     public function logout()
     {

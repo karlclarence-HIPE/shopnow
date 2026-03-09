@@ -16,7 +16,9 @@ Route::prefix('/v1')->group(function () {
 
     Route::prefix('/auth')->group(function () {
         Route::post('/login', [AuthController::class, 'login']);
-        // Route::post('/refresh', [AuthController::class, 'refresh']);
+    });
+    Route::middleware('auth:sanctum')->prefix('/auth')->group(function () {
+        Route::post('/refresh', [AuthController::class, 'refresh']);
     });
 
     Route::middleware(['auth:sanctum'])->group(function () {
