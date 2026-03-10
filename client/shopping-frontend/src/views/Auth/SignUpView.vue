@@ -2,6 +2,18 @@
 import shop from '../../assets/shop.png';
 import NavBar from '../../components/nav/NavBar.vue';
 import FooterView from '../../components/global/FooterView.vue';
+import { onMounted } from 'vue';
+import { useAuthStore } from '../../stores/auth';
+import { useRouter } from 'vue-router';
+
+const authStore = useAuthStore();
+const router = useRouter();
+
+onMounted(() => {
+    if (authStore.token) {
+        router.push("/home")
+    }
+})
 
 </script>
 <template>

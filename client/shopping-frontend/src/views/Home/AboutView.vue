@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import FooterView from '../../components/global/FooterView.vue';
 import NavBar from '../../components/nav/NavBar.vue';
+import { onMounted } from 'vue';
 
+onMounted(() => {
+    sessionStorage.removeItem("accessToken")
+})
 </script>
 <template>
     <NavBar />

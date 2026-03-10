@@ -1,13 +1,35 @@
 <script setup lang="ts">
 import router from '../../router';
+import { useAuthStore } from '../../stores/auth';
+
+const authStore = useAuthStore();
 
 const goToCart = () => {
+    if (!authStore.token) {
+        router.push("/auth/login");
+    }
     router.push("/cart");
 }
 
 const goToProfile = () => {
+    if (!authStore.token) {
+        router.push("/auth/login");
+    }
     router.push("/profile");
 }
+
+const goToHome = () => {
+    router.push("/home")
+}
+
+const goToContact = () => {
+    router.push("/contact")
+}
+
+const goToSignUp = () => {
+    router.push("/auth/sign-up")
+}
+const token = sessionStorage.getItem("accessToken");
 </script>
 <template>
     <div
@@ -17,10 +39,10 @@ const goToProfile = () => {
         </div>
         <div class="flex flex-row justify-center items-center">
             <ul class="flex flex-row justify-between items-center gap-10">
-                <li><a href="/home" class="text-base">Home</a></li>
-                <li><a href="/contact" class="text-base">Contact</a></li>
-                <li><a href="/about" class="text-base">About</a></li>
-                <li><a href="/auth/sign-up" class="text-base">Sign Up</a></li>
+                <li><a @click="goToHome" class="text-base cursor-pointer">Home</a></li>
+                <li><a @click="goToCart" class="text-base cursor-pointer">Contact</a></li>
+                <li><a @click="goToContact" class="text-base cursor-pointer">About</a></li>
+                <li v-if="!token"><a @click="goToSignUp" class="text-base cursor-pointer">Sign Up</a></li>
             </ul>
         </div>
         <div class="flex justify-center items-center gap-5">
@@ -46,7 +68,7 @@ const goToProfile = () => {
             <button class="" @click="goToCart">
                 <v-icon name="fa-shopping-cart" scale="1.5" />
             </button>
-            <button class="" @click="goToProfile">
+            <button class="" @click="goToProfile" v-if="token">
                 <v-icon name="fa-regular-user" scale="1.5" />
             </button>
         </div>

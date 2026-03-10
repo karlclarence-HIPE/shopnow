@@ -5,30 +5,42 @@ import type { LoginRequest } from "../types/auth";
 import * as AuthApi from "../api/auth.api";
 
 export const useAuthStore = defineStore("auth", () => {
-  const user = ref<User | null>(null);
-  const token = ref<string | null>(null);
+  let user = ref<User | null>(null);
+  let token = ref<string | null>(null);
   const loading = ref(false);
 
   const login = async (payload: LoginRequest) => {
     loading.value = true;
     try {
       const response = await AuthApi.login(payload);
-      console.log(response.data);
-      return response.data;
+      const data = response.data;
+
+      user.value = data;
+      token.value = data.data.accessToken;
+
+      sessionStorage.setItem("accessToken", data.data.accessToken);
+
+      return response;
     } catch (e) {
       console.error(e);
     }
   };
 
   const refresh = async () => {
-    const { data } = await AuthApi.refresh();
-    sessionStorage.setItem("accessToken", data.accessToken);
-    return data;
+    try {
+      const { data } = await AuthApi.refresh();
+      token.value = data.data.accessToken;
+      sessionStorage.setItem("accessToken", data.data.accessToken);
+      return data;
+    } catch (error) {
+      throw error;
+    }
   };
 
   const logout = () => {
     user.value = null;
     token.value = null;
+    sessionStorage.clear();
   };
 
   return {

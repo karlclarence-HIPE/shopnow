@@ -9,7 +9,6 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
-use Laravel\Sanctum\PersonalAccessToken;
 
 class AuthController extends ApiController
 {
@@ -67,6 +66,6 @@ class AuthController extends ApiController
 
         return $this->successResponse(array_merge($body, [
             'accessToken' => $tokens['accessToken'],
-        ]))->withCookie($cookie);
+        ]))->setStatusCode(200)->withCookie($cookie);
     }
 }

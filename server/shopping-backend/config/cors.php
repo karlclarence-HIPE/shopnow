@@ -6,7 +6,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*'], // <-- your frontend URL
+    'allowed_origins' => ['*'], 
 
     'allowed_origins_patterns' => [],
 
@@ -16,6 +16,6 @@ return [
 
     'max_age' => 0,
 
-    'supports_credentials' => true, // <-- important for HttpOnly cookies
+    'supports_credentials' => true, 
 
 ];

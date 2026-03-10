@@ -5,19 +5,30 @@ import TextBox from '../../components/input/TextBox.vue';
 import TextLabel from '../../components/input/TextLabel.vue';
 import type { LoginRequest } from '../../types/auth';
 import { useAuthStore } from '../../stores/auth';
-import { reactive } from 'vue';
+import { reactive, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 
 const authStore = useAuthStore();
+const router = useRouter();
+
+onMounted(() => {
+    if (authStore.token) {
+        router.push("/home")
+    }
+})
 
 const data = reactive<LoginRequest>({
-    email: "", 
+    email: "",
     password: "",
 })
 
 const submitForm = async (payload: LoginRequest) => {
-    console.log(payload)
-    const { data } = await authStore.login(payload);
-    return data;
+    const response = await authStore.login(payload);
+
+    if (response?.status) {
+        router.push("/home")
+    }
+    return;
 }
 
 </script>
@@ -48,8 +59,7 @@ const submitForm = async (payload: LoginRequest) => {
                 </div>
                 <div class="flex w-1/2 items-center gap-2 mb-5">
                     <input type="checkbox" id="remember" value=""
-                        class="w-4 h-4 text-dark border border-default-medium rounded-xs bg-neutral-secondary "
-                        required />
+                        class="w-4 h-4 text-dark border border-default-medium rounded-xs bg-neutral-secondary " />
                     <label for="remember" class="flex items-center ">Remember Me</label>
                 </div>
                 <div class="w-1/2 flex flex-row items-center justify-between mb-5">
