@@ -33,7 +33,7 @@ const token = sessionStorage.getItem("accessToken");
 </script>
 <template>
     <div
-        class="hidden md:flex fixed flex-row justify-between items-center w-full h-[10vh] border-b border-gray-300 bg-white z-10 p-5">
+        class="hidden md:flex fixed flex-row justify-between items-center w-full h-[10vh] border-b border-gray-300 bg-white z-20 p-5">
         <div>
             <h2 class="text-2xl font-bold">ShopNow</h2>
         </div>

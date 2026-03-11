@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import shop from '../../assets/shop.png';
-import NavBar from '../../components/nav/NavBar.vue';
-import FooterView from '../../components/global/FooterView.vue';
 import { onMounted } from 'vue';
 import { useAuthStore } from '../../stores/auth';
 import { useRouter } from 'vue-router';
+import LayoutView from '../../layout/LayoutView.vue';
 
 const authStore = useAuthStore();
 const router = useRouter();
@@ -17,10 +16,8 @@ onMounted(() => {
 
 </script>
 <template>
-    <NavBar />
-    <div class="min-h-screen flex items-center justify-center pt-10">
-        <form action="" class="flex flex-row items-center justify-center w-full h-full">
-
+    <LayoutView>
+        <form action="" class="flex flex-row items-center justify-center w-full h-screen">
             <div class="w-[200vw] md:w-full flex flex-col items-center justify-center">
                 <div class="flex flex-col items-start justify-center z-0 mb-5 group w-1/2">
                     <h2 class="text-2xl">Create an Account to ShopNow</h2>
@@ -73,6 +70,5 @@ onMounted(() => {
                 <img :src="shop" alt="">
             </div>
         </form>
-    </div>
-    <FooterView />
+    </LayoutView>
 </template>

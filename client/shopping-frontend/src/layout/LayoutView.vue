@@ -3,9 +3,11 @@ import NavBar from '../components/nav/NavBar.vue';
 import FooterView from '../components/global/FooterView.vue';
 </script>
 <template>
-    <NavBar />
-    <div class="min-h-screen flex items-center justify-center pt-10">
-        <slot />
+    <div class="min-h-screen flex flex-col ">
+        <NavBar />
+        <main class="flex-1 flex flex-col justify-center h-full">
+            <slot />
+        </main>
+        <FooterView />
     </div>
-    <FooterView />
 </template>

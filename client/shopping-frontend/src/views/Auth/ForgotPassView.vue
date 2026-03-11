@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import NavBar from '../../components/nav/NavBar.vue';
-import FooterView from '../../components/global/FooterView.vue';
+import LayoutView from '../../layout/LayoutView.vue';
 </script>
 <template>
-    <NavBar />
-    <div class="min-h-screen flex items-center justify-center pt-10">
-        <form action="" class="flex flex-row items-center justify-center w-full h-full">
+    <LayoutView>
+        <form action="" class="flex flex-row items-center justify-center w-full h-screen">
             <div class="w-1/2 flex flex-col items-center justify-center">
                 <div class="flex flex-col items-start justify-center z-0 mb-5 group w-1/2">
                     <h2 class="text-2xl">Reset Password</h2>
@@ -29,6 +27,5 @@ import FooterView from '../../components/global/FooterView.vue';
                 </div>
             </div>
         </form>
-    </div>
-    <FooterView />
+    </LayoutView>
 </template>

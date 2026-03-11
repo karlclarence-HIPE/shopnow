@@ -34,7 +34,7 @@ const submitForm = async (payload: LoginRequest) => {
 </script>
 <template>
     <LayoutView>
-        <form @submit.prevent="submitForm(data)" class="flex flex-row items-center justify-center w-full h-full">
+        <form @submit.prevent="submitForm(data)" class="flex flex-row items-center justify-center w-full h-screen">
             <div class="w-full flex flex-row items-center justify-center bg-gray-200">
                 <img :src="login_image" alt="">
             </div>
