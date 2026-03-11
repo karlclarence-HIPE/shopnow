@@ -8,7 +8,11 @@ import LayoutView from '../../layout/LayoutView.vue';
 const authStore = useAuthStore();
 const router = useRouter();
 
-
+onMounted(() => {
+    if (authStore.token) {
+        router.push("/home")
+    }
+})
 
 </script>
 <template>
