@@ -29,6 +29,11 @@ const goToContact = () => {
 const goToSignUp = () => {
     router.push("/auth/sign-up")
 }
+
+const goToAbout = () => {
+    router.push("/about")
+}
+
 const token = sessionStorage.getItem("accessToken");
 </script>
 <template>
@@ -40,8 +45,8 @@ const token = sessionStorage.getItem("accessToken");
         <div class="flex flex-row justify-center items-center">
             <ul class="flex flex-row justify-between items-center gap-10">
                 <li><a @click="goToHome" class="text-base cursor-pointer">Home</a></li>
-                <li><a @click="goToCart" class="text-base cursor-pointer">Contact</a></li>
-                <li><a @click="goToContact" class="text-base cursor-pointer">About</a></li>
+                <li><a @click="goToContact" class="text-base cursor-pointer">Contact</a></li>
+                <li><a @click="goToAbout" class="text-base cursor-pointer">About</a></li>
                 <li v-if="!token"><a @click="goToSignUp" class="text-base cursor-pointer">Sign Up</a></li>
             </ul>
         </div>

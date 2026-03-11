@@ -50,13 +50,29 @@ onMounted(async () => {
                 <div class="w-full overflow-x-auto">
                     <div class="flex flex-row min-w-max gap-10">
                         <ProductCard :image="Product1" productName="Kingdom Chair" price="1200" prevPrice="2000"
-                            :starCount="2" />
+                            :starCount="2" ratings="100" />
                         <ProductCard :image="Product3" productName="PlayStation 5" price="29,000" prevPrice="40,000"
-                            :starCount="5" />
+                            :starCount="5" ratings="20" />
                         <ProductCard :image="Product2" productName="Yamaha Drums" price="12,200" prevPrice="2000"
-                            :starCount="2" />
+                            :starCount="2" ratings="30" />
                         <ProductCard :image="Product4" productName="Xbox Controller" price="800" prevPrice="900"
-                            :starCount="3" />
+                            :starCount="3" ratings="40" />
+                        <ProductCard :image="Product1" productName="Kingdom Chair" price="1200" prevPrice="2000"
+                            :starCount="2" ratings="100" />
+                        <ProductCard :image="Product3" productName="PlayStation 5" price="29,000" prevPrice="40,000"
+                            :starCount="5" ratings="20" />
+                        <ProductCard :image="Product2" productName="Yamaha Drums" price="12,200" prevPrice="2000"
+                            :starCount="2" ratings="30" />
+                        <ProductCard :image="Product4" productName="Xbox Controller" price="800" prevPrice="900"
+                            :starCount="3" ratings="40" />
+                        <ProductCard :image="Product1" productName="Kingdom Chair" price="1200" prevPrice="2000"
+                            :starCount="2" ratings="100" />
+                        <ProductCard :image="Product3" productName="PlayStation 5" price="29,000" prevPrice="40,000"
+                            :starCount="5" ratings="20" />
+                        <ProductCard :image="Product2" productName="Yamaha Drums" price="12,200" prevPrice="2000"
+                            :starCount="2" ratings="30" />
+                        <ProductCard :image="Product4" productName="Xbox Controller" price="800" prevPrice="900"
+                            :starCount="3" ratings="40" />
                     </div>
                 </div>
             </div>
@@ -71,13 +87,29 @@ onMounted(async () => {
                 <div class="w-full overflow-x-auto">
                     <div class="flex flex-row min-w-max gap-10">
                         <ProductCard :image="Product1" productName="Kingdom Chair" price="1200" prevPrice="2000"
-                            :starCount="2" />
+                            :starCount="2" ratings="100" />
                         <ProductCard :image="Product3" productName="PlayStation 5" price="29,000" prevPrice="40,000"
-                            :starCount="5" />
+                            :starCount="5" ratings="20" />
                         <ProductCard :image="Product2" productName="Yamaha Drums" price="12,200" prevPrice="2000"
-                            :starCount="2" />
+                            :starCount="2" ratings="30" />
                         <ProductCard :image="Product4" productName="Xbox Controller" price="800" prevPrice="900"
-                            :starCount="3" />
+                            :starCount="3" ratings="40" />
+                        <ProductCard :image="Product1" productName="Kingdom Chair" price="1200" prevPrice="2000"
+                            :starCount="2" ratings="100" />
+                        <ProductCard :image="Product3" productName="PlayStation 5" price="29,000" prevPrice="40,000"
+                            :starCount="5" ratings="20" />
+                        <ProductCard :image="Product2" productName="Yamaha Drums" price="12,200" prevPrice="2000"
+                            :starCount="2" ratings="30" />
+                        <ProductCard :image="Product4" productName="Xbox Controller" price="800" prevPrice="900"
+                            :starCount="3" ratings="40" />
+                        <ProductCard :image="Product1" productName="Kingdom Chair" price="1200" prevPrice="2000"
+                            :starCount="2" ratings="100" />
+                        <ProductCard :image="Product3" productName="PlayStation 5" price="29,000" prevPrice="40,000"
+                            :starCount="5" ratings="20" />
+                        <ProductCard :image="Product2" productName="Yamaha Drums" price="12,200" prevPrice="2000"
+                            :starCount="2" ratings="30" />
+                        <ProductCard :image="Product4" productName="Xbox Controller" price="800" prevPrice="900"
+                            :starCount="3" ratings="40" />
                     </div>
                 </div>
             </div>
