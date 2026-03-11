@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import router from '../../router';
+import { computed } from 'vue';
 import { useAuthStore } from '../../stores/auth';
 
 const authStore = useAuthStore();
+const hasToken = computed(() => !!authStore.token);
 
 const goToCart = () => {
     if (!authStore.token) {
@@ -34,7 +36,6 @@ const goToAbout = () => {
     router.push("/about")
 }
 
-const token = sessionStorage.getItem("accessToken");
 </script>
 <template>
     <div
@@ -47,7 +48,8 @@ const token = sessionStorage.getItem("accessToken");
                 <li><a @click="goToHome" class="text-base cursor-pointer">Home</a></li>
                 <li><a @click="goToContact" class="text-base cursor-pointer">Contact</a></li>
                 <li><a @click="goToAbout" class="text-base cursor-pointer">About</a></li>
-                <li v-if="!token"><a @click="goToSignUp" class="text-base cursor-pointer">Sign Up</a></li>
+                <li v-if="hasToken"><a @click="goToSignUp" class="text-base cursor-pointer">Sign
+                        Up</a></li>
             </ul>
         </div>
         <div class="flex justify-center items-center gap-5">
@@ -71,9 +73,12 @@ const token = sessionStorage.getItem("accessToken");
 
             </form>
             <button class="" @click="goToCart">
+                <v-icon name="fa-regular-heart" scale="1.5" />
+            </button>
+            <button class="" @click="goToCart">
                 <v-icon name="fa-shopping-cart" scale="1.5" />
             </button>
-            <button class="" @click="goToProfile" v-if="token">
+            <button class="" @click="goToProfile" v-if="hasToken">
                 <v-icon name="fa-regular-user" scale="1.5" />
             </button>
         </div>

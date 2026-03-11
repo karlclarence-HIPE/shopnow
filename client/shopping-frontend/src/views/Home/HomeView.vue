@@ -14,9 +14,9 @@ import ProductCard from '../../components/product/ProductCard.vue';
 const authStore = useAuthStore();
 // const router = useRouter(); 
 
-onMounted(async () => {
+onMounted(() => {
     if (!authStore.token) {
-        await authStore.refresh();
+        authStore.refresh();
     }
 })
 
