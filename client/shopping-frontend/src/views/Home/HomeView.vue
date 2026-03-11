@@ -7,6 +7,7 @@ import BannerFlag from '../../components/global/BannerFlag.vue';
 import Product1 from '../../assets/products/chair.png';
 import Product2 from '../../assets/products/Product2.jpeg';
 import Product3 from '../../assets/products/PS5.png';
+import Product4 from '../../assets/products/Product4.png';
 import ProductCard from '../../components/product/ProductCard.vue';
 // import { useRouter } from 'vue-router';
 
@@ -40,20 +41,26 @@ onMounted(async () => {
                 <CarouselView />
             </div>
         </div>
-        <div class="w-full flex flex-col p-10 m-[4vh]">
-            <div class="flex flex-col items-start justify-start mb-[20vh] gap-4">
+        <div class="w-full flex flex-col p-10 mb-[4vh]">
+            <div class="flex flex-col items-start justify-start mb-[10vh] gap-4">
                 <BannerFlag title="Today's" />
                 <div class="">
                     <h2 class="text-2xl/7 font-semibold text-black">Flash Sales</h2>
                 </div>
-                <div class="flex flex-row w-screen gap-20">
-                    <ProductCard :image="Product1" productName="Kingdom Chair" price="1200" prevPrice="2000"
-                        :starCount="2" />
-                    <ProductCard :image="Product3" productName="PlayStation 5" price="29,000" prevPrice="40,000"
-                        :starCount="5" />
+                <div class="w-full overflow-x-auto">
+                    <div class="flex flex-row min-w-max gap-10">
+                        <ProductCard :image="Product1" productName="Kingdom Chair" price="1200" prevPrice="2000"
+                            :starCount="2" />
+                        <ProductCard :image="Product3" productName="PlayStation 5" price="29,000" prevPrice="40,000"
+                            :starCount="5" />
+                        <ProductCard :image="Product2" productName="Yamaha Drums" price="12,200" prevPrice="2000"
+                            :starCount="2" />
+                        <ProductCard :image="Product4" productName="Xbox Controller" price="800" prevPrice="900"
+                            :starCount="3" />
+                    </div>
                 </div>
             </div>
-            <div class="flex flex-col items-start justify-start mb-[20vh] gap-5">
+            <div class="flex flex-col items-start justify-start mb-[10vh] gap-4">
                 <BannerFlag title="This Month" />
                 <div class="flex flex-row w-full items-center justify-between">
                     <h2 class="text-2xl/7 font-semibold text-black ">Best Selling Products</h2>
@@ -61,11 +68,17 @@ onMounted(async () => {
                         View All
                     </button>
                 </div>
-                <div class="flex flex-row w-screen gap-10 ">
-                    <ProductCard :image="Product1" productName="Kingdom Chair" price="1200" prevPrice="2000"
-                        :starCount="2" />
-                    <ProductCard :image="Product2" productName="Yamaha Drums" price="25000" prevPrice="30000"
-                        :starCount="5" />
+                <div class="w-full overflow-x-auto">
+                    <div class="flex flex-row min-w-max gap-10">
+                        <ProductCard :image="Product1" productName="Kingdom Chair" price="1200" prevPrice="2000"
+                            :starCount="2" />
+                        <ProductCard :image="Product3" productName="PlayStation 5" price="29,000" prevPrice="40,000"
+                            :starCount="5" />
+                        <ProductCard :image="Product2" productName="Yamaha Drums" price="12,200" prevPrice="2000"
+                            :starCount="2" />
+                        <ProductCard :image="Product4" productName="Xbox Controller" price="800" prevPrice="900"
+                            :starCount="3" />
+                    </div>
                 </div>
             </div>
         </div>
