@@ -10,9 +10,9 @@ onMounted(async () => {
   if (!authStore.token) return;
 
   try {
-    await authStore.refresh(); 
+    await authStore.refresh();
     router.push('/home');
-  } catch { 
+  } catch {
     authStore.logout();
   }
 })

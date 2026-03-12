@@ -22,11 +22,13 @@ api.interceptors.response.use(
   (response) => response,
   async (error) => {
     const authStore = useAuthStore();
-    console.log(authStore.token);
     if (error.response?.status === 401) {
       try {
         const data = await authStore.refresh();
+
+        authStore.token = data.accessToken;
         error.config.headers.Authorization = `Bearer ${data.accessToken}`;
+
         return api(error.config);
       } catch {
         authStore.logout();
