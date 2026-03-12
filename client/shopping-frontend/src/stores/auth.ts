@@ -29,7 +29,7 @@ export const useAuthStore = defineStore("auth", () => {
   const refresh = async () => {
     try {
       const { data } = await AuthApi.refresh();
-      console.log(data.status);
+
       token.value = data.data.accessToken;
       sessionStorage.setItem("accessToken", data.data.accessToken);
       return data;
