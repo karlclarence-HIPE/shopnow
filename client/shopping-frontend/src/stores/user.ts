@@ -1,6 +1,8 @@
 import { defineStore } from "pinia";
 import { ref, computed } from "vue";
 import type { User } from "../types/user";
+import * as UserApi from "../api/user.api";
+import type { RegisterRequest } from "../types/auth";
 
 export const useUserStore = defineStore("user", () => {
   const user = ref<User | null>(null);
@@ -8,19 +10,21 @@ export const useUserStore = defineStore("user", () => {
 
   const isAuthenticated = computed(() => !!user.value);
 
-  const setUser = (data: User) => {
-    user.value = data;
-  };
-
-  const fetchUser = async () => {
+  const registerUser = async (payload: RegisterRequest) => {
     loading.value = true;
+    try {
+      const response = await UserApi.signup(payload);
+
+      return response;
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   return {
     user,
     loading,
     isAuthenticated,
-    setUser,
-    fetchUser,
+    registerUser,
   };
 });

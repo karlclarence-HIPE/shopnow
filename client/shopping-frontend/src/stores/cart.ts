@@ -2,7 +2,6 @@ import { defineStore } from "pinia";
 import { ref, computed } from "vue";
 import type { Product } from "../types/product";
 import type { User } from "../types/user";
-import { useUserStore } from "./user";
 
 export const useCartStore = defineStore("cart", () => {
   const products = ref<Product | null>(null);
@@ -15,7 +14,6 @@ export const useCartStore = defineStore("cart", () => {
 
   const fetchProducts = async () => {
     if (isAuthenticated) {
-        
     }
   };
 
