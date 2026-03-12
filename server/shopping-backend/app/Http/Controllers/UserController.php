@@ -60,7 +60,7 @@ class UserController extends Controller
             );
         } catch (\Exception $e) {
             return response()->json([
-                'message' => 'An unexpected error occured.'. $e->getMessage()
+                'message' => 'An unexpected error occured.' . $e->getMessage()
             ], 500);
         }
     }
