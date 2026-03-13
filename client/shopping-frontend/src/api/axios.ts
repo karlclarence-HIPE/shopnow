@@ -24,6 +24,11 @@ api.interceptors.response.use(
     const authStore = useAuthStore();
     if (error.response?.status === 401) {
       try {
+        if (error.config?.url?.includes("/auth/refresh")) {
+          authStore.logout();
+          return Promise.reject(error);
+        }
+
         const data = await authStore.refresh();
 
         authStore.token = data.accessToken;

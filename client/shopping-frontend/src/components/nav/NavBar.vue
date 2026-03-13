@@ -1,10 +1,17 @@
 <script setup lang="ts">
 import router from '../../router';
-import { computed } from 'vue';
+import { computed, onMounted } from 'vue';
 import { useAuthStore } from '../../stores/auth';
 
 const authStore = useAuthStore();
-const hasToken = computed(() => !!authStore.token);
+const hasToken = computed(() => authStore.token);
+const isLoading = computed(() => authStore.loading);
+
+onMounted(async () => {
+    if (!authStore.token) {
+        await authStore.refresh();
+    }
+})
 
 const goToCart = () => {
     if (!authStore.token) {
@@ -48,7 +55,7 @@ const goToAbout = () => {
                 <li><a @click="goToHome" class="text-base cursor-pointer">Home</a></li>
                 <li><a @click="goToContact" class="text-base cursor-pointer">Contact</a></li>
                 <li><a @click="goToAbout" class="text-base cursor-pointer">About</a></li>
-                <li v-if="!hasToken"><a @click="goToSignUp" class="text-base cursor-pointer">Sign
+                <li v-if="!isLoading && !hasToken"><a @click="goToSignUp" class="text-base cursor-pointer">Sign
                         Up</a></li>
             </ul>
         </div>

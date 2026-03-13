@@ -2,7 +2,7 @@
 import FooterColumn from './FooterColumn.vue';
 </script>
 <template>
-    <div class="hidden md:grid grid-cols-5 bg-black w-full h-full p-[10vh]">
+    <div class="min-h-screen hidden md:grid grid-cols-5 bg-black w-full h-full p-[10vh]">
         <FooterColumn title="Exlcusive">
             <p class="text-sm">Subscribe</p>
             <p class="text-sm">Get 10% off your first order</p>
