@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AddToCartRequest extends FormRequest
+class StoreCartRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +23,10 @@ class AddToCartRequest extends FormRequest
     {
         return [
             //
+            'user_id' => 'required|number',
+            'product_id' => 'required|number',
+            'status' => 'sometimes|string',
+            'quantity' => 'required|number',
         ];
     }
 }
