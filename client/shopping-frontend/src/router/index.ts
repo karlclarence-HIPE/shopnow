@@ -52,9 +52,9 @@ const router = createRouter({
       component: CartView,
     },
     {
-      path: "/profile", 
-      name: "profile", 
-      component: ProfileView
+      path: "/profile",
+      name: "profile",
+      component: ProfileView,
     },
   ],
 });
