@@ -16,9 +16,9 @@ export const useAuthStore = defineStore("auth", () => {
       const data = response.data;
 
       user.value = data;
-      token.value = data.data.accessToken;
+      token.value = data.data.accessToken ?? null;
 
-      sessionStorage.setItem("accessToken", data.data.accessToken);
+      sessionStorage.setItem("accessToken", data.data.accessToken ?? null);
 
       return response;
     } catch (e) {

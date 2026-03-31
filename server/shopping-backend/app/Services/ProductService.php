@@ -11,6 +11,26 @@ class ProductService extends BaseService
     ) {
         parent::__construct($repository);
     }
+
+    public function index()
+    {
+        return $this->repository->all();
+    }
+
+    public function create($data)
+    {
+        return $this->repository->create($data);
+    }
+
+    public function getById($id)
+    {
+        return $this->repository->getById($id);
+    }
+
+    public function update($id, $data)
+    {
+        return $this->repository->update($id, $data);
+    }
 }
 
 ?>

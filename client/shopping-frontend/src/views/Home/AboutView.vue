@@ -3,6 +3,9 @@ import { onMounted } from 'vue';
 import LayoutView from '../../layout/LayoutView.vue';
 import { useAuthStore } from '../../stores/auth';
 import Shopping1 from '../../assets/about/shopping.avif';
+import Boss1 from '../../assets/bosses/boss1.png';
+import Boss2 from '../../assets/bosses/boss2.png';
+import Boss3 from '../../assets/bosses/boss3.png';
 
 const authStore = useAuthStore();
 
@@ -37,33 +40,106 @@ onMounted(() => {
                 </div>
             </div>
         </div>
-        <div class="flex flex-row items-center justify-center min-w-max gap-10">
+        <div class="min-h-1/2 flex flex-row items-center justify-center min-w-max gap-10 ">
             <div
-                class="flex flex-col justify-center items-center border border-solid h-45 w-45 rounded p-1 cursor-pointer">
+                class="flex flex-col justify-center items-center border border-solid border-gray-300 h-45 w-55 rounded p-1 cursor-pointer">
                 <v-icon name="fa-store" scale="3.80" />
                 <p class="mb-4 text-3xl tracking-tight text-heading">10.5k</p>
                 <p class="text-xs ">Annual gross sale in our site</p>
-
             </div>
             <div
-                class="flex flex-col justify-center items-center border border-solid h-45 w-45 rounded p-1 cursor-pointer">
-                <v-icon name="fa-shopping-bag" scale="3.80" />
+                class="flex flex-col justify-center items-center border border-solid border-gray-300 h-45 w-55 rounded p-1 cursor-pointer">
+                <v-icon name="fa-dollar-sign" scale="3.80" />
                 <p class="mb-4 text-3xl tracking-tight text-heading">33k</p>
                 <p class="text-xs ">Annual gross sale in our site</p>
-
             </div>
             <div
-                class="flex flex-col justify-center items-center border border-solid h-45 w-45 rounded p-1 cursor-pointer">
+                class="flex flex-col justify-center items-center border border-solid border-gray-300 h-45 w-55 rounded p-1 cursor-pointer">
                 <v-icon name="fa-shopping-bag" scale="3.80" />
                 <p class="mb-4 text-3xl tracking-tight text-heading">45.5k</p>
                 <p class="text-xs ">Annual gross sale in our site</p>
-
             </div>
             <div
-                class="flex flex-col justify-center items-center border border-solid h-45 w-45 rounded p-1 cursor-pointer">
+                class="flex flex-col justify-center items-center border border-solid border-gray-300 h-45 w-55 rounded p-1 cursor-pointer">
                 <v-icon name="fa-regular-money-bill-alt" scale="3.80" />
                 <p class="mb-4 text-3xl tracking-tight text-heading">25k</p>
                 <p class="text-xs ">Annual gross sale in our site</p>
+            </div>
+        </div>
+        <div class="min-h-screen flex flex-row items-center justify-center min-w-max gap-5">
+            <div class="h-100 w-100 bg-gray-200 flex flex-col">
+                <img :src="Boss1" alt="">
+                <div class="mt-5">
+                    <p class="text-3xl tracking-tight text-heading ">Tom Cruise</p>
+                    <p class="text-sm">Founder & Chairman</p>
+                    <div class="mt-5">
+                        <ul class="flex flex-row items-center gap-2 ">
+                            <li><button> <v-icon name="fa-twitter" scale="1" />
+                                </button></li>
+                            <li><button> <v-icon name="fa-instagram" scale="1" />
+                                </button></li>
+                            <li><button> <v-icon name="fa-linkedin" scale="1" />
+                                </button></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="h-100 w-100 bg-gray-200 flex flex-col">
+                <img :src="Boss2" alt="">
+                <div class="mt-5">
+                    <p class="text-3xl tracking-tight text-heading ">Emman Watson</p>
+                    <p class="text-sm">Managing Director</p>
+                    <div class="mt-5">
+                        <ul class="flex flex-row items-center gap-2">
+                            <li><button> <v-icon name="fa-twitter" scale="1" />
+                                </button></li>
+                            <li><button> <v-icon name="fa-instagram" scale="1" />
+                                </button></li>
+                            <li><button> <v-icon name="fa-linkedin" scale="1" />
+                                </button></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="h-100 w-100 bg-gray-200 flex flex-col">
+                <img :src="Boss3" alt="">
+                <div class="mt-5">
+                    <p class="text-3xl tracking-tight text-heading ">Will Smith</p>
+                    <p class="text-sm">Product Designer</p>
+                    <div class="mt-5">
+                        <ul class="flex flex-row items-center gap-2">
+                            <li><button> <v-icon name="fa-twitter" scale="1" />
+                                </button></li>
+                            <li><button> <v-icon name="fa-instagram" scale="1" />
+                                </button></li>
+                            <li><button> <v-icon name="fa-linkedin" scale="1" />
+                                </button></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="min-h-[50vh] flex flex-row items-center justify-center min-w-max gap-20">
+            <div class="flex flex-col items-center justify-center">
+                <v-icon name="fa-truck-loading" scale="3.80" />
+                <div class="flex flex-col items-center justify-center mt-10">
+                    <p class="text-md tracking-tight font-bold">FREE AND FAST DELIVERY</p>
+                    <p class="text-sm tracking-normal">Free delivery for all orders over $140</p>
+                </div>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+                <v-icon name="fa-headset" scale="3.80" />
+                <div class="flex flex-col items-center justify-center mt-10">
+                    <p class="text-md tracking-tight font-bold">24/7 CUSTOMER SERVICE</p>
+                    <p class="text-sm tracking-normal">Friendly 24/7 customer support</p>
+                </div>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+                <v-icon name="fa-regular-check-circle" scale="3.80" />
+                <div class="flex flex-col items-center justify-center mt-10">
+                    <p class="text-md tracking-tight font-bold">MONEY BACK GUARANTEE</p>
+                    <p class="text-sm tracking-normal">We return money within 30 days</p>
+                </div>
             </div>
         </div>
     </LayoutView>

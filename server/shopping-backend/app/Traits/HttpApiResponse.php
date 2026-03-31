@@ -24,7 +24,7 @@ trait HttpApiResponse
             'status' => false,
             'data' => $data,
             'message' => $message,
-        ]);
+        ], $code);
     }
 
     public function unauthorized(): JsonResponse

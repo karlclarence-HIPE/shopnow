@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Repositories\Eloquent\UserRepository;
 use App\Services\BaseService;
+
 class UserService extends BaseService
 {
     public function __construct(

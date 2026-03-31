@@ -22,7 +22,7 @@ class ProductController extends Controller
         try {
             if (!$products) {
                 return response()->json([
-                    'data' => $products,
+                    'data' => null,
                     'message' => 'Products not found!',
                 ], 404);
             }

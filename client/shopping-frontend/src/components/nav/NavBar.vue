@@ -1,18 +1,18 @@
 <script setup lang="ts">
 import router from '../../router';
-import { computed, onMounted } from 'vue';
+import { computed } from 'vue';
 import { useAuthStore } from '../../stores/auth';
 
 const authStore = useAuthStore();
 const hasToken = computed(() => authStore.token);
 const isLoading = computed(() => authStore.loading);
 
-onMounted(async () => {
-    if (!authStore.token) {
+/* onMounted(async () => {
+    if (authStore.token) {
         await authStore.refresh();
     }
 })
-
+ */
 const goToCart = () => {
     if (!authStore.token) {
         router.push("/auth/login");
