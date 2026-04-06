@@ -20,22 +20,28 @@ export const useAuthStore = defineStore("auth", () => {
 
       sessionStorage.setItem("accessToken", data.data.accessToken ?? null);
 
+      loading.value = false;
       return response;
     } catch (e) {
+      loading.value = false;
       console.error(e);
     }
   };
 
   const refresh = async () => {
+    loading.value = true;
     try {
       const { data } = await AuthApi.refresh();
 
       token.value = data.data.accessToken ?? null;
 
       sessionStorage.setItem("accessToken", data.data.accessToken ?? null);
+
+      loading.value = false;
       return data;
     } catch (error) {
-      throw error;
+      loading.value = true;
+      console.error(error);
     }
   };
 

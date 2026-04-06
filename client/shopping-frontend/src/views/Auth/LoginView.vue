@@ -5,14 +5,19 @@ import TextBox from '../../components/input/TextBox.vue';
 import TextLabel from '../../components/input/TextLabel.vue';
 import type { LoginRequest } from '../../types/auth';
 import { useAuthStore } from '../../stores/auth';
-import { reactive, onMounted } from 'vue';
+import { reactive, onMounted, computed } from 'vue';
 import { useRouter } from 'vue-router';
 
 const authStore = useAuthStore();
 const router = useRouter();
+const hasToken = computed(() => authStore.token);
+// let isLoading = computed(() => authStore.loading); 
+// let isLoading = ref(false);
 
 onMounted(() => {
-    if (authStore.token) {
+    authStore.loading = false;
+
+    if (hasToken) {
         router.push("/home")
     }
 })
@@ -33,8 +38,8 @@ const submitForm = async (payload: LoginRequest) => {
 
 </script>
 <template>
-    <LayoutView>
-        <form @submit.prevent="submitForm(data)" class="flex flex-row items-center justify-center w-full h-screen">
+    <LayoutView v-if="!authStore.loading">
+        <form  @submit.prevent="submitForm(data)" class="flex flex-row items-center justify-center w-full h-screen">
             <div class="w-full flex flex-row items-center justify-center bg-gray-200">
                 <img :src="login_image" alt="">
             </div>

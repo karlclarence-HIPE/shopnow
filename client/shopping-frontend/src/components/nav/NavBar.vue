@@ -5,12 +5,12 @@ import { useAuthStore } from '../../stores/auth';
 
 const authStore = useAuthStore();
 const hasToken = computed(() => authStore.token);
-const isLoading = computed(() => authStore.loading);
+// const isLoading = computed(() => authStore.loading);
 
 onMounted(async () => {
-    if (!authStore.token) {
-        await authStore.refresh();
-    }
+    // if (!authStore.token) {
+    //     await authStore.refresh();
+    // }
 })
 
 const goToCart = () => {
@@ -35,8 +35,8 @@ const goToContact = () => {
     router.push("/contact")
 }
 
-const goToSignUp = () => {
-    router.push("/auth/sign-up")
+const goToLogin = () => {
+    router.push("/auth/login")
 }
 
 const goToAbout = () => {
@@ -55,8 +55,7 @@ const goToAbout = () => {
                 <li><a @click="goToHome" class="text-base cursor-pointer">Home</a></li>
                 <li><a @click="goToContact" class="text-base cursor-pointer">Contact</a></li>
                 <li><a @click="goToAbout" class="text-base cursor-pointer">About</a></li>
-                <li v-if="!isLoading && !hasToken"><a @click="goToSignUp" class="text-base cursor-pointer">Sign
-                        Up</a></li>
+                <li v-if="!hasToken"><a @click="goToLogin" class="text-base cursor-pointer">Login</a></li>
             </ul>
         </div>
         <div class="flex justify-end items-center w-1/3 gap-5">

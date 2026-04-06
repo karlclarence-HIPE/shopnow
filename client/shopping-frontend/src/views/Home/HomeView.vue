@@ -13,6 +13,7 @@ import ProductCard from '../../components/product/ProductCard.vue';
 const authStore = useAuthStore();
 
 onMounted(() => {
+    console.log(authStore.token)
     if (!authStore.token) {
         authStore.refresh();
     }
