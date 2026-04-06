@@ -30,8 +30,9 @@ export const useAuthStore = defineStore("auth", () => {
     try {
       const { data } = await AuthApi.refresh();
 
-      token.value = data.data.accessToken;
-      sessionStorage.setItem("accessToken", data.data.accessToken);
+      token.value = data.data.accessToken ?? null;
+
+      sessionStorage.setItem("accessToken", data.data.accessToken ?? null);
       return data;
     } catch (error) {
       throw error;
