@@ -58,6 +58,11 @@ class AuthController extends ApiController
             ->withCookie($cookie);
     }
 
+    public function me(Request $request)
+    {
+        return response()->json($request->user());
+    }
+
     private function sendResponseWithTokens(array $tokens, $body = []): JsonResponse
     {
         $rtExpireTime = config('sanctum.rt_expiration');

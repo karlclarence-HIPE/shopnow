@@ -11,6 +11,7 @@ Route::prefix('/v1')->group(function () {
         Route::post('/login', [AuthController::class, 'login']);
         Route::middleware('auth:sanctum')->group(function () {
             Route::post('/refresh', [AuthController::class, 'refresh']);
+            Route::get('/auth/me', [AuthController::class, 'me']);
         });
     });
 
