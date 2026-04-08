@@ -17,7 +17,7 @@ const hasToken = computed(() => authStore.token);
 onMounted(() => {
     authStore.loading = false;
 
-    if (hasToken) {
+    if (hasToken.value) {
         router.push("/home")
     }
 })

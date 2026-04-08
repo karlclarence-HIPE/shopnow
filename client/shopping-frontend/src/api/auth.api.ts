@@ -6,3 +6,4 @@ export const login = (payload: LoginRequest) =>
 export const refresh = () =>
   api.post("/auth/refresh", {}, { withCredentials: true });
 export const logout = () => api.post("/auth/logout");
+export const me = () => api.get("/auth/me");

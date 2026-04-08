@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { onMounted, computed } from 'vue';
 import { useAuthStore } from '../../stores/auth';
 import LayoutView from '../../layout/LayoutView.vue';
 import CarouselView from '../../components/CarouselView.vue';
@@ -12,9 +12,10 @@ import ProductCard from '../../components/product/ProductCard.vue';
 
 const authStore = useAuthStore();
 
+const hasToken = computed(() => authStore.token);
+
 onMounted(() => {
-    console.log(authStore.token)
-    if (!authStore.token) {
+    if (!hasToken) {
         authStore.refresh();
     }
 })
