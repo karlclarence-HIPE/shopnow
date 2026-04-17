@@ -3,6 +3,7 @@ import login_image from '../../assets/online-shopping.png';
 import LayoutView from '../../layout/LayoutView.vue';
 import TextBox from '../../components/input/TextBox.vue';
 import TextLabel from '../../components/input/TextLabel.vue';
+import BaseButton from '../../components/input/BaseButton.vue';
 import type { LoginRequest } from '../../types/auth';
 import { useAuthStore } from '../../stores/auth';
 import { reactive, onMounted, computed } from 'vue';
@@ -39,7 +40,7 @@ const submitForm = async (payload: LoginRequest) => {
 </script>
 <template>
     <LayoutView v-if="!authStore.loading">
-        <form  @submit.prevent="submitForm(data)" class="flex flex-row items-center justify-center w-full h-screen">
+        <form @submit.prevent="submitForm(data)" class="flex flex-row items-center justify-center w-full h-screen">
             <div class="w-full flex flex-row items-center justify-center bg-gray-200">
                 <img :src="login_image" alt="">
             </div>
@@ -68,9 +69,9 @@ const submitForm = async (payload: LoginRequest) => {
                     <label for="remember" class="flex items-center ">Remember Me</label>
                 </div>
                 <div class="w-1/2 flex flex-row items-center justify-between mb-5">
-                    <button type="submit"
-                        class="text-white inset-0 bg-black focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded rounded-base text-sm px-4 py-2.5 cursor-pointer w-1/2 hover:opacity-10">Log
-                        In</button>
+                    <BaseButton type="submit"
+                        className="text-white inset-0 bg-black focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded rounded-base text-sm px-4 py-2.5 cursor-pointer w-1/2 hover:opacity-10"
+                        name="Log In" />
                     <a href="/auth/forgot-password" type="submit"
                         class="text-dark font-medium leading-5 rounded rounded-base text-sm px-4 py-2.5 cursor-pointer hover:underline">Forgot
                         Password</a>
