@@ -10,6 +10,11 @@ class CartService extends BaseService
     ) {
         parent::__construct($repository);
     }
+
+    public function getById($id)
+    {
+        return $this->repository->getById($id);
+    }
 }
 
 ?>

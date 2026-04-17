@@ -28,6 +28,8 @@ Route::prefix('/v1')->group(function () {
         Route::middleware('auth:sanctum')->group(function () {
             Route::get('/', [CartController::class, 'index']);
             Route::post('/add-to-cart', [CartController::class, 'store']);
+            Route::put('/update-cart', [CartController::class, 'update']);
+            Route::delete('/delete-item', [CartController::class, 'remove']);
         });
     });
 
