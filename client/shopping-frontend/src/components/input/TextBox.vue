@@ -14,5 +14,6 @@ defineProps<TextBoxProps>();
 
 </script>
 <template>
-    <input v-model="model" :type="type" :id="id" :name="name" :placeholder="placeholder" :required="required" :class="className" />
+    <input v-model="model" :type="type" :id="id" :name="name" :placeholder="placeholder" :required="required"
+        :class="className" />
 </template>

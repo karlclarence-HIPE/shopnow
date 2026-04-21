@@ -14,6 +14,7 @@ onMounted(() => {
         authStore.refresh();
     }
 })
+
 </script>
 <template>
     <LayoutView>

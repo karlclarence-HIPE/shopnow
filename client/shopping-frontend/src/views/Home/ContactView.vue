@@ -1,10 +1,19 @@
 <script setup lang="ts">
 import LayoutView from '../../layout/LayoutView.vue';
 import TextBox from '../../components/input/TextBox.vue';
-import { reactive } from 'vue';
+import { reactive, onMounted } from 'vue';
 import type { ContactRequest } from '../../types/contact';
 import TextArea from '../../components/input/TextArea.vue';
 import BaseButton from '../../components/input/BaseButton.vue';
+import { useAuthStore } from '../../stores/auth';
+
+const authStore = useAuthStore();
+
+onMounted(() => {
+    if (!authStore.token) {
+        authStore.refresh();
+    }
+})
 
 const data = reactive<ContactRequest>({
     name: "",

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, computed } from 'vue';
+import { onMounted } from 'vue';
 import { useAuthStore } from '../../stores/auth';
 import LayoutView from '../../layout/LayoutView.vue';
 import CarouselView from '../../components/CarouselView.vue';
@@ -12,10 +12,9 @@ import ProductCard from '../../components/product/ProductCard.vue';
 
 const authStore = useAuthStore();
 
-const hasToken = computed(() => authStore.token);
 
 onMounted(() => {
-    if (!hasToken) {
+    if (!authStore.token) {
         authStore.refresh();
     }
 })
@@ -58,7 +57,7 @@ onMounted(() => {
                                 :starCount="2" ratings="30" />
                             <ProductCard :image="Product4" productName="Xbox Controller" price="800" prevPrice="900"
                                 :starCount="3" ratings="40" />
-                            <ProductCard :image="Product1" productName="Kingdom Chair" price="1200" prevPrice="2000"
+                            <ProductCard :image="Product1" productName="Kingdom Chair" price="1,200" prevPrice="2000"
                                 :starCount="2" ratings="100" />
                             <ProductCard :image="Product3" productName="PlayStation 5" price="29,000" prevPrice="40,000"
                                 :starCount="5" ratings="20" />
@@ -66,7 +65,7 @@ onMounted(() => {
                                 :starCount="2" ratings="30" />
                             <ProductCard :image="Product4" productName="Xbox Controller" price="800" prevPrice="900"
                                 :starCount="3" ratings="40" />
-                            <ProductCard :image="Product1" productName="Kingdom Chair" price="1200" prevPrice="2000"
+                            <ProductCard :image="Product1" productName="Kingdom Chair" price="1,200" prevPrice="2000"
                                 :starCount="2" ratings="100" />
                             <ProductCard :image="Product3" productName="PlayStation 5" price="29,000" prevPrice="40,000"
                                 :starCount="5" ratings="20" />
